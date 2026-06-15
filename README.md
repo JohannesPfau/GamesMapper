@@ -59,10 +59,11 @@ from topological data analysis to Steam tag data:
 
 ## 📈 Figures
 
-<img src="results/figures/simulation_releases_per_year.png" height="200px"> <img src="results/figures/naming_score_curve.png" height="200px">
+<img src="results/figures/mapper_algorithm_steps.png" width="100%">
 
-*Left: Simulation games released on Steam per year (2015–2025). Right: the naming-score elbow used
-to pick the number of clusters in a level.*
+*Fig. 1 from the paper — the four steps of the Mapper algorithm: (1) project the data with a filter
+function, (2) cover the filter range with overlapping intervals, (3) cluster the points inside each
+interval, and (4) connect clusters that share points to form the Mapper graph.*
 
 The main output is an **interactive** layered Mapper graph. Open
 [`results/simulation_games_mapper.html`](results/simulation_games_mapper.html) in a browser to
