@@ -11,12 +11,12 @@ _REPO_ROOT = os.path.abspath(os.path.join(_HERE, "..", ".."))
 sys.path.insert(0, os.path.join(_REPO_ROOT, "src"))
 
 from utils import evaluate_salient_tags
+from gdco_data import load_gdco_data
 
 sellers = pd.read_csv(os.path.join(_HERE, 'clustering_best_sellers.csv'))
 new = pd.read_csv(os.path.join(_HERE, 'clustering_best_new.csv'))
 
-tags = pd.read_csv(os.path.join(_REPO_ROOT, 'data', 'gdco_tags.csv'))
-reference = pd.read_csv(os.path.join(_REPO_ROOT, 'data', 'gdco_reference.csv'))
+tags, reference = load_gdco_data(os.path.join(_REPO_ROOT, 'data', 'gdco_data.csv'))
 
 def get_names_from_appids(appid_list):
 

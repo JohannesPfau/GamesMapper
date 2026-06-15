@@ -1,18 +1,18 @@
 import mapper_data_preparation as mdp
 import mapper_algorithm as mapper
 import plot_mapper as pm
-import pandas as pd
+import gdco_data
 
-# Input data lives in the repository's data/ folder.
+# Input file in the repository's data/ folder. gdco_simulation.csv is the committed
+# case-study subset. For broader analyses (other genres, years before 2015, or a
+# review threshold below 100), point this at the full (uncommitted) data/gdco_data.csv.
 # Run this script from the repository root:  python ./src/main.py
-path_tags = 'data/gdco_tags.csv'
-path_reference = 'data/gdco_reference.csv'
+path_data = 'data/gdco_simulation.csv'
 
 # Steam tag to analyse. "Simulation" reproduces the case study from the paper.
 TAG = "Simulation"
 
-tags = pd.read_csv(path_tags)
-reference = pd.read_csv(path_reference)
+tags, reference = gdco_data.load_gdco_data(path_data)
 
 
 def get_games_with_tag(mapper_prepared, tag, threshold = 0.6):

@@ -75,12 +75,15 @@ explore the Simulation case study (or regenerate it with `python ./src/main.py`)
 GamesMapper/
 ├── src/                              # Source code for the Games Mapper pipeline
 │   ├── main.py                       #   entry point — reproduces the Simulation case study
+│   ├── gdco_data.py                  #   load gdco_data.csv → (tags, reference) dataframes
+│   ├── merge_gdco_data.py            #   one-time helper: build gdco_data.csv from the raw exports
+│   ├── clean_gdco_data.py            #   one-time helper: build the committed gdco_simulation.csv subset
 │   ├── mapper_data_preparation.py    #   load & clean Steam data, restrict to a tag and year range
 │   ├── mapper_algorithm.py           #   build Mapper levels, run the elbow method, assemble clusters
 │   ├── cohen_clustering.py           #   weighted-tag K-means + Cohen's h salient-tag scoring
 │   ├── plot_mapper.py                #   layered-graph layout + interactive Plotly drawing
 │   └── utils.py                      #   Cohen's h helpers and automatic cluster naming
-├── data/                             # Input data (not committed) — see data/README.md
+├── data/                             # Input data — committed gdco_simulation.csv (see data/README.md)
 ├── results/                          # Outputs of the pipeline
 │   ├── simulation_games_mapper.html  #   interactive Mapper graph (open in a browser)
 │   ├── dict_level_to_cluster.pkl     #   precomputed clustering of the Simulation case study
@@ -102,7 +105,8 @@ GamesMapper/
 
 - Python >= 3.10
 - Recommended: use a virtual environment or Conda.
-- The input data placed in `data/` (see [`data/README.md`](data/README.md)).
+- No data download needed: the case-study input `data/gdco_simulation.csv` ships with the
+  repo (see [`data/README.md`](data/README.md) for its schema and the full dataset).
 
 ### Setup
 
@@ -127,8 +131,10 @@ python ./src/main.py
 ```
 
 By default this reproduces the case study from the paper: it analyses the `Simulation` tag over
-2015–2025 and opens the interactive Mapper graph in your browser. Edit the `TAG`, year range and
-review threshold near the top of [`src/main.py`](src/main.py) to analyse any other tag or genre.
+2015–2025 and opens the interactive Mapper graph in your browser. `gdco_simulation.csv` contains
+only Simulation games — to analyse a different genre, a wider year range, or a review threshold
+below 100, point `path_data` in [`src/main.py`](src/main.py) at the full `data/gdco_data.csv` and
+edit `TAG` (see [`data/README.md`](data/README.md)).
 
 ---
 
@@ -151,7 +157,7 @@ If you use this work, please cite the paper:
 ```bibtex
 @inproceedings{grelier2026gamesmapper,
       title={Games Mapper: Topological Data Analysis of Steam Genres}, 
-	  author    = {Grelier, Nicolas and Kaufmann, St\'ephane and Pfau, Johannes},
+	  author={Grelier, Nicolas and Kaufmann, St\'ephane and Pfau, Johannes},
       year={2026},
       eprint={2606.14376},
       archivePrefix={arXiv},

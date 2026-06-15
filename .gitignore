@@ -1,4 +1,7 @@
 # --- Large input data ---------------------------------------------------------
+# gdco_data.csv is the merged single source the pipeline reads (~150 MB).
+# The raw exports below are only needed to (re)build it via src/merge_gdco_data.py.
+data/gdco_data.csv
 data/gdco_reference.csv
 data/gdco_tags.csv
 
