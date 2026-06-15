@@ -383,7 +383,7 @@ def plotly_drawing(G, pos, kpi_x, list_kpi_to_show, gdco_reference, save_as_pdf 
     fig.show(renderer="browser")
     
     if save_as_pdf:
-        fig.write_image("mapper_graph_paper.pdf")
+        fig.write_image("results/mapper_graph_paper.pdf")
     
       
     

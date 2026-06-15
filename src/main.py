@@ -1,18 +1,18 @@
 import mapper_data_preparation as mdp
 import mapper_algorithm as mapper
-#import plot_mapper as pm
-import refactored_mapper_graph as pm
-import pickle
+import plot_mapper as pm
 import pandas as pd
 
-path_tags = 'gdco_tags.csv'
-path_reference = 'gdco_reference.csv'
+# Input data lives in the repository's data/ folder.
+# Run this script from the repository root:  python ./src/main.py
+path_tags = 'data/gdco_tags.csv'
+path_reference = 'data/gdco_reference.csv'
+
+# Steam tag to analyse. "Simulation" reproduces the case study from the paper.
+TAG = "Simulation"
 
 tags = pd.read_csv(path_tags)
 reference = pd.read_csv(path_reference)
-
-with open("data.pkl", "rb") as f:
-    simulation_dict = pickle.load(f)
 
 
 def get_games_with_tag(mapper_prepared, tag, threshold = 0.6):
@@ -58,12 +58,20 @@ def automatic_clustering(mapper_object, nb_clusters = 5):
     
     for year in mapper_object.games_level.keys():
         
-        dict_elbow_clusters = mapper_object.elbow_method(year)
+        dict_elbow_clusters = mapper_object.elbow_method(year, plot=False)
         mapper_object.set_clusters_for_level(nb_clusters, year, dict_elbow_clusters)
         
     return mapper_object
 
 
 def plot_mapper_graph(mapper_object):
-    
+
     pm.plot_clusters(mapper_object)
+
+
+if __name__ == "__main__":
+    # Reproduce the case study: build the Mapper object for TAG, cluster every
+    # level, and render the interactive layered Mapper graph in the browser.
+    mapper_object = get_mapper_algorithm_object(TAG)
+    mapper_object = automatic_clustering(mapper_object)
+    plot_mapper_graph(mapper_object)

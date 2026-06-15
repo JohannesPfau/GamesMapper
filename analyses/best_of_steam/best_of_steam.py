@@ -1,12 +1,22 @@
+import os
+import sys
+
 import pandas as pd
+
+# This analysis lives in analyses/best_of_steam/ but reuses the shared salient-tag
+# helper from src/ and the shared Steam data from data/. Resolve both relative to
+# the repository root so the script runs from any working directory.
+_HERE = os.path.dirname(os.path.abspath(__file__))
+_REPO_ROOT = os.path.abspath(os.path.join(_HERE, "..", ".."))
+sys.path.insert(0, os.path.join(_REPO_ROOT, "src"))
+
 from utils import evaluate_salient_tags
 
+sellers = pd.read_csv(os.path.join(_HERE, 'clustering_best_sellers.csv'))
+new = pd.read_csv(os.path.join(_HERE, 'clustering_best_new.csv'))
 
-sellers = pd.read_csv('clustering_best_sellers.csv')
-new = pd.read_csv('clustering_best_new.csv')
-
-tags = pd.read_csv('gdco_tags.csv')
-reference = pd.read_csv('gdco_reference.csv')
+tags = pd.read_csv(os.path.join(_REPO_ROOT, 'data', 'gdco_tags.csv'))
+reference = pd.read_csv(os.path.join(_REPO_ROOT, 'data', 'gdco_reference.csv'))
 
 def get_names_from_appids(appid_list):
 
