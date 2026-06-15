@@ -5,9 +5,9 @@
 This repository contains the code and instructions to reproduce the results from our paper:
 
 ### 📄 Games Mapper: Topological Data Analysis of Steam Genres
-Nicolas Grelier, Pullup Entertainment
-Stéphane Kaufmann, Pullup Entertainment
-[Johannes Pfau](https://nevermindcreations.de/), Utrecht University
+Nicolas Grelier, Pullup Entertainment  
+Stéphane Kaufmann, Pullup Entertainment  
+[Johannes Pfau](https://nevermindcreations.de/), Utrecht University  
 
 arXiv: https://arxiv.org/abs/2606.14376
 
