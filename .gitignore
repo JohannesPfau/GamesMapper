@@ -1,0 +1,24 @@
+# --- Large input data ---------------------------------------------------------
+data/gdco_reference.csv
+data/gdco_tags.csv
+
+# --- Generated outputs --------------------------------------------------------
+results/mapper_graph_paper.pdf
+
+# --- Python -------------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*.egg-info/
+.ipynb_checkpoints/
+
+# --- Virtual environments -----------------------------------------------------
+env/
+venv/
+.venv/
+.conda/
+
+# --- OS / editor --------------------------------------------------------------
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
