@@ -10,6 +10,7 @@ The Games Mapper pipeline reads a single CSV from this folder. Two versions exis
 > Both files share the **same schema** and either can be passed to
 > `gdco_data.load_gdco_data(...)`. `src/main.py` points at `gdco_simulation.csv`; for
 > other genres or a wider scope, point `path_data` there at `data/gdco_data.csv`.
+Our data was retrived from GameDiscoverCo and we share it here with Simon Carless' authorisation.
 
 ## Schema
 
