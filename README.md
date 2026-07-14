@@ -131,11 +131,8 @@ From the repository root:
 python ./src/main.py
 ```
 
-By default this reproduces the case study from the paper: it analyses the `Simulation` tag over
-2015–2025 and opens the interactive Mapper graph in your browser. `gdco_simulation.csv` contains
-only Simulation games — to analyse a different genre, a wider year range, or a review threshold
-below 100, point `path_data` in [`src/main.py`](src/main.py) at the full `data/gdco_data.csv` and
-edit `TAG` (see [`data/README.md`](data/README.md)).
+This reproduces the case study from the paper: it analyses the `Simulation` tag over
+2015–2025 and opens the interactive Mapper graph in your browser.
 
 ---
 
