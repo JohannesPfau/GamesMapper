@@ -139,17 +139,6 @@ edit `TAG` (see [`data/README.md`](data/README.md)).
 
 ---
 
-## 🔬 Additional analyses
-
-The [`analyses/`](analyses/) folder contains two further, self-contained Steam studies, each with
-its own README:
-
-- [`analyses/best_of_steam/`](analyses/best_of_steam/) — clustering of Steam's yearly "Best of
-  Steam" new releases and top sellers (2019–2025).
-- [`analyses/demos_next_fest/`](analyses/demos_next_fest/) — demo follower-growth and tag trends
-  across the 2025 and 2026 Steam Next Fests.
-
----
 
 ## 📚 Citation
 

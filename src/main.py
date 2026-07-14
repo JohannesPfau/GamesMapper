@@ -53,11 +53,15 @@ def get_mapper_algorithm_object(tag, min_year = 2015, max_year = 2025, nb_min_re
     
     return mapper_algorithm_object
 
-def automatic_clustering(mapper_object, nb_clusters = 5):
+def clustering_as_paper(mapper_object):
     #this function is just to test that everything runs correctly
     
     for year in mapper_object.games_level.keys():
-        
+
+        if year <= 2022:
+            nb_clusters = 6
+        else:
+            nb_clusters = 7
         dict_elbow_clusters = mapper_object.elbow_method(year, plot=False)
         mapper_object.set_clusters_for_level(nb_clusters, year, dict_elbow_clusters)
         
@@ -73,5 +77,5 @@ if __name__ == "__main__":
     # Reproduce the case study: build the Mapper object for TAG, cluster every
     # level, and render the interactive layered Mapper graph in the browser.
     mapper_object = get_mapper_algorithm_object(TAG)
-    mapper_object = automatic_clustering(mapper_object)
+    mapper_object = clustering_as_paper(mapper_object)
     plot_mapper_graph(mapper_object)
